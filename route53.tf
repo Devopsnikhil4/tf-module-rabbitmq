@@ -6,3 +6,4 @@ resource "aws_route53_record" "rabbitmq_dns_record" {
   records = [aws_spot_instance_request.allows_rabbitmq.private_ip]
 }
 
+  
