@@ -13,16 +13,16 @@ resource "aws_security_group" "allows_rabbitmq" {
 
   ingress {
     description = "rabbitmq from VPC"
-    from_port   = 5672
-    to_port     = 5672
+    from_port   = var.RABBITMQ_PORT_NUMBER
+    to_port     = var.RABBITMQ_PORT_NUMBER
     protocol    = "tcp"
     cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
   }
 
   ingress {
     description = "rabbitmq from Default VPC"
-    from_port   = 5672
-    to_port     = 5672
+    from_port   = var.RABBITMQ_PORT_NUMBER
+    to_port     = var.RABBITMQ_PORT_NUMBER
     protocol    = "tcp"
     cidr_blocks = [data.terraform_remote_state.vpc.outputs.DEFAULT_VPC_CIDR]
   }
